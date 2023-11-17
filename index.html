@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaFlet JS - ISS Posição</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://www.webglearth.com/v2/api.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+</head>
+<body>
+
+    
+
+    <nav class="nav">
+        <img src="img-nav.png" alt="" id="img-nav">
+        <div class="box-nav">
+            <h1>Posição atual da ISS</h1>
+        </div>
+    </nav>
+
+    <div id="map">
+
+        <img src="icon.png" alt="iss" id="img-iss">
+
+    </div>
+
+    <div class="box">
+
+        
+        <div id="box-1">
+
+            <p class="p-info">
+                <b>Latitude:</b> <span id="lat"></span>
+                <b>|</b>
+                <b>Longitude:</b> <span id="long"></span>
+                <b>|</b>
+                <b>Altitude:</b> <span id="alt"></span><b>
+            </p>
+
+        </div>
+        
+        <div id="box-2">
+            
+            <p class="p-info">
+                <b>Velocidade em KM:</b> <span id="vel-km"></span>
+                <b>|</b>
+                <b>Velocidade em Milhas:</b> <span id="vel-mph"></span>
+            </p>
+        
+        </div>
+            
+            
+        
+
+    </div>
+
+    <script>
+
+        var map = new WE.map('map');
+
+        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        const endPoint = "https://api.wheretheiss.at/v1/satellites/25544";
+
+        async function getISS() {
+
+        const response = await fetch(endPoint);
+        const data = await response.json();
+        const {latitude, longitude, velocity, altitude} = data;
+
+        
+        map.setView([latitude, longitude]);
+
+        document.querySelector('#lat').textContent = latitude.toFixed(3) + "°";
+        document.querySelector('#long').textContent = longitude.toFixed(3) + "°";
+        document.querySelector('#vel-km').textContent = (velocity * 1.60934).toFixed(3) + " km";
+        document.querySelector('#vel-mph').textContent = velocity.toFixed(3) + " mph";
+        document.querySelector('#alt').textContent = altitude.toFixed(3) + "°";
+
+        }
+
+        setInterval(getISS, 2000);
+
+    </script>
+
+</body>
+</html>

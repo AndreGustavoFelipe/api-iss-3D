@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Kanit&family=Teko:wght@300&display=swap');
+
+
+*{
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Kanit', sans-serif;
+
+}
+
+body{
+
+    height: 100%;
+
+    background-image: url(background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /*Relacionado ao tamanho da minha página*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box{
+
+    background-image: url(background-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /*Relacionado ao tamanho da minha página*/
+
+    padding: 15px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-size: 2vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2vh;
+
+}
+
+.p-info{
+
+    display: flex;
+
+    gap: 1vw;
+
+}
+
+#map{
+    
+    width: 50vw;
+    height: 50vh;
+
+    margin-top: 5vh;
+
+}
+
+#img-iss{
+
+    width: 5vw;
+    height: 5vh;
+
+    position: absolute;
+    left: 45%;
+    top: 45%;   
+	 
+
+}
+
+.nav{
+
+    background-image: url(background-2.jpg);
+    box-shadow: 1px 1px 7px #1B2631;
+    color: white;
+
+    width: 100%;
+    height: 7vh;
+    
+    padding: 0.5%;
+
+    font-size: 2.3vh;
+
+    display: flex;
+    align-items: center;
+
+}
+
+#img-nav{
+
+    position: absolute;
+
+    margin-left: 1.2vw;
+
+    width: 5vw;
+    height: 5vh;
+
+}
+
+.box-nav{
+
+    margin: auto;
+
+}
