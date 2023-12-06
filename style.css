@@ -55,15 +55,15 @@ body{
 .p-info{
 
     display: flex;
-
+    font-weight: normal;
     gap: 1vw;
 
 }
 
 #map{
     
-    width: 50vw;
-    height: 50vh;
+    width: 65vw;
+    height: 65vh;
 
     margin-top: 5vh;
 

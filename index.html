@@ -14,8 +14,6 @@
 </head>
 <body>
 
-    
-
     <nav class="nav">
         <img src="img-nav.png" alt="" id="img-nav">
         <div class="box-nav">
@@ -80,9 +78,9 @@
 
         document.querySelector('#lat').textContent = latitude.toFixed(3) + "°";
         document.querySelector('#long').textContent = longitude.toFixed(3) + "°";
-        document.querySelector('#vel-km').textContent = (velocity * 1.60934).toFixed(3) + " km";
-        document.querySelector('#vel-mph').textContent = velocity.toFixed(3) + " mph";
-        document.querySelector('#alt').textContent = altitude.toFixed(3) + "°";
+        document.querySelector('#vel-km').textContent = velocity.toFixed(0) + " km";
+        document.querySelector('#vel-mph').textContent = (velocity / 1.60934).toFixed(0) + " mph";
+        document.querySelector('#alt').textContent = altitude.toFixed(3) + "km";
 
         }
 
